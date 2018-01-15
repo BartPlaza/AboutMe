@@ -13,18 +13,21 @@
       <form class="col-md-6 col-md-offset-4">
       	<div class="form-row">
 	      	<div class="form-group col-md-3 col-sm-12 col-xs-12">
-	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="name" placeholder="Imię" required>
+	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="name" name="name" placeholder="Imię" required v-model="userData.name" v-validate.lazy="'required|min: 3'">
+	   			<label for="name" v-show="errors.has('name')">{{errors.first('name')}}</label>
 	      	</div>
 	      	<div class="form-group col-md-6 col-sm-12 col-xs-12">
-	      		<input type="email" class="form-controll col-md-12 col-sm-12 col-xs-12" id="email" placeholder="Email" required>
+	      		<input type="email" class="form-controll col-md-12 col-sm-12 col-xs-12" id="email" name="email"placeholder="Email" required v-model="userData.email" v-validate.lazy="'required|email'">
+	      		<label for="email" v-show="errors.has('email')">{{errors.first('email')}}</label>
 	      	</div>
 	      	<div class="form-group col-md-3 col-sm-12 col-xs-12">
-	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="phone" placeholder="Telefon">
+	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="phone" name="phone" placeholder="Telefon" v-model="userData.phone">
 	      	</div>
 	    </div>
 	    <div class="form-row">
 		    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-		    	<textarea class="col-md-12 col-sm-12 col-xs-12" id="body" placeholder="Wiadomość" required></textarea>
+		    	<textarea class="col-md-12 col-sm-12 col-xs-12" id="message" name="message" placeholder="Wiadomość" required v-model.lazy="message" v-validate="'required|min: 10'"></textarea>
+		    	<label for="message" v-show="errors.has('message')">{{errors.first('message')}}</label>
 		    </div>
 		</div>
 		<div class="form-row">
@@ -37,6 +40,48 @@
 </template>
 
 <script>
+	import Vue from 'vue'
+	import VeeValidate from 'vee-validate';
+	import { Validator } from 'vee-validate';
+	const dict = {
+		custom: {
+			name: {
+				required: 'Jak masz na imię?',
+				min: 'Wprowadź co najmniej 3 znaki'
+			},
+			email: {
+				required: 'Podaj swój email',
+				email: 'Sprawdź proszę adres email'
+			},
+			message: {
+				required: 'Co chcesz mi przekazać',
+				min: 'Prosze napisz coś więcej ;)'
+			}
+		}
+	};
+
+	Validator.localize('pl', dict);
+
+
+
+
+
+	Vue.use(VeeValidate);
+
+	export default {
+		data: function(){
+			return {
+				userData: {
+					name: '',
+					email: '',
+					phone: ''
+				},
+				message: ''
+
+			}
+		}
+	}
+
 </script>
 
 
@@ -112,6 +157,11 @@
 	button:hover {
 		border: 2px solid #745376;
 		color:  #745376;
+	}
+
+	label {
+		font-size: 9px;
+		color: red;
 	}
 
 	
