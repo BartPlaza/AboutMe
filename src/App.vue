@@ -11,15 +11,31 @@
       </div> 
     </div>
     <skillsets></skillsets>
-    <div id="content" class="col-md-8 col-md-offset-2">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <div id="content-section" class="col-md-12">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="content-header">
+          <h1>Czesc! Jestem Bartek i jestem początkującym web developerem.</h1>
+        </div>
+        <content-row>
+          <h4 slot="text">Najlepiej odnajduję się w rozwązywaniu konkretnych problemów i tworzeniu...</h4>
+          <img slot="image" src="./assets/content/thinking.png" class="content-image">
+        </content-row>
+        <content-row>
+          <h4 slot="text">... pomimo, że mam doswiadczenie zawodowe w prowadzeniu szkolen i zarządzaniu organizacją łączącą 140 osób.</h4>
+          <img slot="image" src="./assets/content/training.png" class="content-image">
+        </content-row>
+        <content-row>
+          <h4 slot="text">Jestem inżynierem, do tej pory zajmowałem się oprogramowanie CAD 3D. Supportem technicznym, sprzedażą, szkoleniami.</h4>
+          <img slot="image" src="./assets/content/modeling.png" class="content-image">
+        </content-row>
+        <content-row>
+          <h4 slot="text">Dzięki tym szerokim dowiadczeniom obrałem swój kierunek dalszego rozwoju w tworzeniu aplikacji webowych.</h4>
+          <img slot="image" src="./assets/content/programming.png" class="content-image">
+        </content-row>
+        </div>
     </div>
-    <projects></projects>
+
+    <!--<projects></projects>-->
     <google-map></google-map>
     <contact></contact>
     <footer class="col-sm-12">
@@ -33,7 +49,9 @@
   import Navigation from './components/Navigation.vue';
   import GoogleMaps from './components/GoogleMaps.vue';
   import Contact from './components/Contact.vue';
-  import Projects from './components/Projects';
+  import Projects from './components/Projects.vue';
+  import ContentRow from './components/ContentRow.vue';
+
 
   export default {
     components: {
@@ -41,7 +59,13 @@
       'navigation': Navigation,
       'google-map': GoogleMaps,
       'contact': Contact,
-      'projects': Projects
+      'projects': Projects,
+      'content-row': ContentRow
+    },
+    created: function(){
+      window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+      }
     }
   }
 </script>
@@ -105,13 +129,29 @@ $sm: "only screen and (max-width: 768px)";
   color: darkgray;
 }
 
-#content { 
-  
-}
 
 footer {
   height: 80px;
   background-color: #a294a3;
 }
+
+
+#content-section {
+  width: 100%;
+  background-color: #f5f7f9;
+}
+
+.content-header{
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.content-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 
 </style>

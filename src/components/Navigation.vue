@@ -39,7 +39,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 20px;
 
   @media #{$sm}{
       flex-direction: column;      

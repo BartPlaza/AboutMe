@@ -1,29 +1,39 @@
 <template>
   <div id="skillset" class="col-md-8 col-md-offset-2">
-      <h1 class="text-center">My skills and expirience</h1>    
+      <h1 class="text-center">Moje umiejętności</h1>    
       <div class="col-md-6">  
         <div class="progress">
           <transition name="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%" :class="{progressZero: !progress}">HTML
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 85%" :class="{progressZero: !progress}">HTML
             <span class="sr-only">80% Complete</span>
           </div>
           </transition>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%" :class="{progressZero: !progress}">CSS
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 75%" :class="{progressZero: !progress}">CSS
             <span class="sr-only">20% Complete</span>
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">Javascript
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 75%" :class="{progressZero: !progress}">Bootstrap
+            <span class="sr-only">20% Complete</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" :class="{progressZero: !progress}">Javascript
             <span class="sr-only">60% Complete (warning)</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%" :class="{progressZero: !progress}">Jquery
+            <span class="sr-only">40% Complete (warning)</span>
           </div>
         </div>
       
       </div>
       <div class="col-md-6"> 
         <div class="progress">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">Vue 2.0
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%" :class="{progressZero: !progress}">Vue 2.0
             <span class="sr-only">40% Complete (warning)</span>
           </div>
         </div>
@@ -32,7 +42,24 @@
             <span class="sr-only">60% Complete (warning)</span>
           </div>
         </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" :class="{progressZero: !progress}">Laravel
+            <span class="sr-only">60% Complete (warning)</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">MySQL
+            <span class="sr-only">60% Complete (warning)</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-grey" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">Git
+            <span class="sr-only">60% Complete (warning)</span>
+          </div>
+        </div>
       </div>
+
+
     </div>
 </template>
 <script>
@@ -72,13 +99,13 @@ export default {
 <style>
 
 #skillset {
-  height: 400px;
+  height: 500px;
 }
 
 #skillset > h1 {
   font-color: rgb(162,148,163);
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .progressZero {
@@ -92,6 +119,10 @@ export default {
 .progress-bar {
   line-height: 30px;
   font-size: 15px
+}
+
+.progress-bar-grey {
+  background-color: #868e96;
 }
 
 </style>
