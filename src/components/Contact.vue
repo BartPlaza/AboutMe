@@ -32,7 +32,7 @@
 		</div>
 		<div class="form-row">
 			<div class="form-group col-md-12 col-sm-12 text-right">
-				<button type="submit" class="btn">Wyślij</button>
+				<button type="submit" class="btn" @click.prevent="sendEmail">Wyślij</button>
 			</div>
 		</div>
       </form>
@@ -43,6 +43,8 @@
 	import Vue from 'vue'
 	import VeeValidate from 'vee-validate';
 	import { Validator } from 'vee-validate';
+	import axios from 'axios';
+
 	const dict = {
 		custom: {
 			name: {
@@ -62,10 +64,6 @@
 
 	Validator.localize('pl', dict);
 
-
-
-
-
 	Vue.use(VeeValidate);
 
 	export default {
@@ -78,6 +76,25 @@
 				},
 				message: ''
 
+			}
+		},
+		methods: {
+			sendEmail: function(){
+				axios.post('https://api.sendgrid.com/api/mail.send.json', {
+			    api_user: 'grzebyk44',
+			    api_key: 'API Key ID: yQLkEXOcT6iEVht_5-vOoQ',
+			    to: 'grzebyk44@gmail.com',
+			    toname: 'Destination',
+			    subject: 'Test',
+			    text: this.message,
+			    from: this.email
+			  })
+			  .then(function (response) {
+			    console.log(response);
+			  })
+			  .catch(function (error) {
+			    console.log('jest jakiś błąd');
+			  });
 			}
 		}
 	}

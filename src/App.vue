@@ -14,23 +14,35 @@
     <div id="content-section" class="col-md-12">
       <div class="col-md-8 col-md-offset-2">
         <div class="content-header">
-          <h1>Czesc! Jestem Bartek i jestem początkującym web developerem.</h1>
+          <h1>Cześć! Jestem Bartek, jestem początkującym web deweloperem...</h1>
         </div>
         <content-row>
-          <h4 slot="text">Najlepiej odnajduję się w rozwązywaniu konkretnych problemów i tworzeniu...</h4>
-          <img slot="image" src="./assets/content/thinking.png" class="content-image">
+          <h4 slot="text">... i najlepiej odnajduję się w rozwązywaniu konkretnych problemów i tworzeniu, czyli sprawianiu, że coś zaczyna istnieć i działać ...</h4>
+          <img slot="image" src="./assets/content/thinking.png">
         </content-row>
         <content-row>
-          <h4 slot="text">... pomimo, że mam doswiadczenie zawodowe w prowadzeniu szkolen i zarządzaniu organizacją łączącą 140 osób.</h4>
-          <img slot="image" src="./assets/content/training.png" class="content-image">
+          <h4 slot="text">... pomimo, że mam doswiadczenie zawodowe w prowadzeniu szkoleń i zarządzaniu organizacją łączącą 140 osób.</h4>
+          <img slot="image" src="./assets/content/training.png">
         </content-row>
         <content-row>
-          <h4 slot="text">Jestem inżynierem, do tej pory zajmowałem się oprogramowanie CAD 3D. Supportem technicznym, sprzedażą, szkoleniami.</h4>
-          <img slot="image" src="./assets/content/modeling.png" class="content-image">
+          <h4 slot="text">Jestem inżynierem, dotychczas zajmowałem się oprogramowanie CAD 3D. Supportem technicznym, sprzedażą, szkoleniami...</h4>
+          <img slot="image" src="./assets/content/modeling.png">
         </content-row>
         <content-row>
-          <h4 slot="text">Dzięki tym szerokim dowiadczeniom obrałem swój kierunek dalszego rozwoju w tworzeniu aplikacji webowych.</h4>
-          <img slot="image" src="./assets/content/programming.png" class="content-image">
+          <h4 slot="text">... i to dzięki tym szerokim dowiadczeniom obrałem swój kierunek dalszego rozwoju w tworzeniu i rozwiązywaniu problemów aplikacji webowych.</h4>
+          <img slot="image" src="./assets/content/programming.png">
+        </content-row>
+        <content-row>
+          <h2 slot="text">... czy myślisz, że moglibyśmy nawiązać współpracę?</h2>
+          <div slot="image">
+            <transition name="arrows">
+            <div class="content-arrows" v-show="arrows">
+              <i class="fa fa-chevron-down" aria-hidden="true" style="color:#c7bfc8"></i>
+              <i class="fa fa-chevron-down" aria-hidden="true" style="color:#a294a3"></i>
+              <i class="fa fa-chevron-down" aria-hidden="true" style="color:#745376"></i>
+            </div>
+            </transition>
+          </div>
         </content-row>
         </div>
     </div>
@@ -62,10 +74,19 @@
       'projects': Projects,
       'content-row': ContentRow
     },
-    created: function(){
-      window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
+    data: function() {
+      return {
+        arrows: false
       }
+    },
+    created: function(){
+      var vm = this;
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      };
+      setInterval(function(){
+        vm.arrows = !vm.arrows
+      },2000);
     }
   }
 </script>
@@ -146,12 +167,28 @@ footer {
   text-align: center;
 }
 
-.content-image {
+.content-image > img{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.content-arrows {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+}
 
+.arrows-enter-active, .arrows-leave-active {
+  transition: transform 2s;
+}
+
+.arrows-leave-active{
+  transition: transform 2s;
+}
+
+.arrows-enter,.arrows-leave-to {
+  transform: translateY(30px);
+}
 
 </style>
