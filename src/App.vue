@@ -50,6 +50,7 @@
     <!--<projects></projects>-->
     <google-map></google-map>
     <contact></contact>
+    <div class="flesh alert">Example message</div>
     <footer class="col-sm-12">
     </footer>
   </div>
@@ -189,6 +190,14 @@ footer {
 
 .arrows-enter,.arrows-leave-to {
   transform: translateY(30px);
+}
+
+.flesh {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  z-index: 20;
 }
 
 </style>

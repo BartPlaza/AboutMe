@@ -13,8 +13,7 @@
 		      :clickable="false"
 		      :draggable="false"
 		      @click="center=m.position"
-		       :icon="{url:'/src/assets/marker.png'}"
-
+		       :icon="{url:'../dist/marker.png'}"
 		    ></gmap-marker>
 		</gmap-map>
 	</div>

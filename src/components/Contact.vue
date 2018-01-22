@@ -13,15 +13,15 @@
       <form class="col-md-6 col-md-offset-4">
       	<div class="form-row">
 	      	<div class="form-group col-md-3 col-sm-12 col-xs-12">
-	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="name" name="name" placeholder="Imię" required v-model="userData.name" v-validate.lazy="'required|min: 3'">
+	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="name" name="name" placeholder="Imię" required v-model.lazy="userData.name" v-validate.lazy="'required|min: 3'">
 	   			<label for="name" v-show="errors.has('name')">{{errors.first('name')}}</label>
 	      	</div>
 	      	<div class="form-group col-md-6 col-sm-12 col-xs-12">
-	      		<input type="email" class="form-controll col-md-12 col-sm-12 col-xs-12" id="email" name="email"placeholder="Email" required v-model="userData.email" v-validate.lazy="'required|email'">
+	      		<input type="email" class="form-controll col-md-12 col-sm-12 col-xs-12" id="email" name="email"placeholder="Email" required v-model.lazy="userData.email" v-validate.lazy="'required|email'">
 	      		<label for="email" v-show="errors.has('email')">{{errors.first('email')}}</label>
 	      	</div>
 	      	<div class="form-group col-md-3 col-sm-12 col-xs-12">
-	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="phone" name="phone" placeholder="Telefon" v-model="userData.phone">
+	      		<input type="text" class="form-controll col-md-12 col-sm-12 col-xs-12" id="phone" name="phone" placeholder="Telefon" v-model.lazy="userData.phone">
 	      	</div>
 	    </div>
 	    <div class="form-row">
@@ -32,7 +32,7 @@
 		</div>
 		<div class="form-row">
 			<div class="form-group col-md-12 col-sm-12 text-right">
-				<button type="submit" class="btn" @click.prevent="sendEmail">Wyślij</button>
+				<button type="submit" class="btn" @click.prevent="validateEmail">Wyślij</button>
 			</div>
 		</div>
       </form>
@@ -43,7 +43,9 @@
 	import Vue from 'vue'
 	import VeeValidate from 'vee-validate';
 	import { Validator } from 'vee-validate';
-	import axios from 'axios';
+	import VueResource from 'vue-resource';
+
+Vue.use(VueResource);
 
 	const dict = {
 		custom: {
@@ -75,26 +77,54 @@
 					phone: ''
 				},
 				message: ''
-
 			}
 		},
 		methods: {
 			sendEmail: function(){
-				axios.post('https://api.sendgrid.com/api/mail.send.json', {
-			    api_user: 'grzebyk44',
-			    api_key: 'API Key ID: yQLkEXOcT6iEVht_5-vOoQ',
-			    to: 'grzebyk44@gmail.com',
-			    toname: 'Destination',
-			    subject: 'Test',
-			    text: this.message,
-			    from: this.email
-			  })
-			  .then(function (response) {
-			    console.log(response);
-			  })
-			  .catch(function (error) {
-			    console.log('jest jakiś błąd');
-			  });
+				var vm = this;
+				var flashError = function(){
+					$('.flesh').removeClass('alert-success');
+					$('.flesh').text('Wystąpił problem z wysłaniem maila. Wyślij wiadomość bezpośrednio').addClass('alert-danger').show();
+				    		setTimeout(function(){
+				    		$('.flesh').fadeOut();
+				    		},3000);
+				 };
+				$.ajax({
+				    type: "POST",
+				    url: 'php/sendEmail.php',
+				    data: {name: vm.userData.name,
+				    	   email: vm.userData.email,
+				    	   phone: vm.userData.phone,
+				    	   message: vm.message
+						},
+				    success: function(data){
+				    	if (data) {
+				    		vm.userData.name = '';
+				    		email: vm.userData.email ='';
+				    		phone: vm.userData.phone = '';
+				    		message: vm.message = '';
+				    		vm.$validator.reset();
+
+				    		$('.flesh').text('Twoja wiadomość została wysłana').addClass('alert-success').show();
+				    		setTimeout(function(){
+				    		$('.flesh').fadeOut();
+				    		},3000);
+				    	} else {
+				    		flashError();
+				    	}
+				    },
+				    error: function(data){
+				    	flashError();
+				    }
+				});
+			},
+			validateEmail: function(){
+				var vm = this;
+      			this.$validator.validateAll().then((result) => {
+        			if (result) {
+        				vm.sendEmail();
+        			}
+        		});
 			}
 		}
 	}
