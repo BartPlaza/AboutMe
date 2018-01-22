@@ -1,5 +1,5 @@
 <template>
-	<div id="contact" class="col-md-12 col-sm-12">
+	<address id="contact" class="col-md-12 col-sm-12">
 		<div id="about-me">
 	      <div class="photo">
 	      </div>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
       </form>
-    </div>
+    </address>
 </template>
 
 <script>
@@ -134,9 +134,17 @@ Vue.use(VueResource);
 
 <style scoped>
 
+	#contact{
+		box-shadow: 0 4px 4px -3px #745376;
+		padding-bottom: 15px;
+		margin-bottom: 0;
+		z-index: 20;
+	}
+
 	.about-links {
 		margin-top: 10px;
 		margin-left: 20%;
+		margin-bottom: 10px;
 	}
 
 	.about-links > a{
@@ -170,10 +178,6 @@ Vue.use(VueResource);
 	  margin-top: -65px;
 	  background-image: url("../assets/me.jpg");
 	  background-size: cover;
-	}
-
-	form {
-		margin-bottom: 40px;
 	}
 
 	input, textarea, button {
@@ -210,8 +214,5 @@ Vue.use(VueResource);
 		font-size: 9px;
 		color: red;
 	}
-
-	
-
 
 </style>

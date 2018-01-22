@@ -53,7 +53,7 @@ $sm: "only screen and (max-width: 768px)";
   align-items: center;
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-bottom: 80px;
+	padding-bottom: 60px;
 
    @media #{$sm} {
       flex-direction: column;

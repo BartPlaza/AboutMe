@@ -84,7 +84,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #152034;
+  color: black;
   border-bottom: 2px solid #152034;
   padding-bottom: 18px;
   box-sizing: border-box;

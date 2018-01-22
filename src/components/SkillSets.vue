@@ -1,6 +1,7 @@
 <template>
-  <div id="skillset" class="col-md-8 col-md-offset-2">
-      <h1 class="text-center">Moje umiejętności</h1>    
+  <section id="skillset" class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">Moje umiejętności</h1>
+      <p>Poniżej zobaczysz listę technologii, z których korzystam. Długość słupka to proporcjonalne zaangażowanie w poznanie danej technologii.</p>    
       <div class="col-md-6">  
         <div class="progress">
           <transition name="progress">
@@ -10,7 +11,7 @@
           </transition>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 75%" :class="{progressZero: !progress}">CSS
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 85%" :class="{progressZero: !progress}">CSS
             <span class="sr-only">20% Complete</span>
           </div>
         </div>
@@ -25,7 +26,7 @@
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%" :class="{progressZero: !progress}">Jquery
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" :class="{progressZero: !progress}">Jquery
             <span class="sr-only">40% Complete (warning)</span>
           </div>
         </div>
@@ -38,29 +39,27 @@
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" :class="{progressZero: !progress}">PHP
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">PHP
             <span class="sr-only">60% Complete (warning)</span>
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" :class="{progressZero: !progress}">Laravel
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">Laravel
             <span class="sr-only">60% Complete (warning)</span>
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">MySQL
+          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" :class="{progressZero: !progress}">MySQL
             <span class="sr-only">60% Complete (warning)</span>
           </div>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-grey" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%" :class="{progressZero: !progress}">Git
+          <div class="progress-bar progress-bar-grey" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" :class="{progressZero: !progress}">Git
             <span class="sr-only">60% Complete (warning)</span>
           </div>
         </div>
       </div>
-
-
-    </div>
+    </section>
 </template>
 <script>
 
@@ -99,13 +98,20 @@ export default {
 <style>
 
 #skillset {
-  height: 500px;
+  margin-bottom: 50px;
 }
 
 #skillset > h1 {
   font-color: rgb(162,148,163);
   margin-top: 40px;
   margin-bottom: 40px;
+  margin-bottom: 0;
+}
+
+#skillset > p {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
 }
 
 .progressZero {

@@ -1,39 +1,41 @@
 <template>
   <div id="conatiner">
-    <div id="parallax">  
-    </div>
-    <div id="top">
-      <navigation></navigation>
+    <header>
+    <navigation></navigation>
+    <div id="parallax"></div>
       <div id="hero" class="col-md-8 col-md-offset-2">
-      <h1>Design that converts users</h1>
-      <h3>We'll help you increase revenue and reduce churn by making your product more usable, friendly and fun</h3>
-      <a href="#" class="hero-button">See my work</a>
+      <h1>Bartłomiej Płaza web developer</h1>
+      <p>Witaj na mojej stronie wizytówce na której dowiesz się kim jestem i jakie umiejętności oferuje.</p>
+      <a href="#skillset" class="hero-button">Sprawdź mnie</a>
       </div> 
-    </div>
+    </header>
+    <main>
     <skillsets></skillsets>
-    <div id="content-section" class="col-md-12">
+    <section id="content-section" class="col-md-12">
       <div class="col-md-8 col-md-offset-2">
         <div class="content-header">
-          <h1>Cześć! Jestem Bartek, jestem początkującym web deweloperem...</h1>
+          <h1>Moja historia</h1>
         </div>
         <content-row>
-          <h4 slot="text">... i najlepiej odnajduję się w rozwązywaniu konkretnych problemów i tworzeniu, czyli sprawianiu, że coś zaczyna istnieć i działać ...</h4>
+          <h4 slot="text">
+          Jestem inżynierem, dotychczas zajmowałem się oprogramowanie CAD 3D. Supportem technicznym, sprzedażą, wdrożeniami...
+         </h4>
           <img slot="image" src="./assets/content/thinking.png">
         </content-row>
         <content-row>
-          <h4 slot="text">... pomimo, że mam doswiadczenie zawodowe w prowadzeniu szkoleń i zarządzaniu organizacją łączącą 140 osób.</h4>
+          <h4 slot="text"> ...posiadam umiejętności miękkie, mam doswiadczenie zawodowe w prowadzeniu szkoleń. Zarządzałem też organizacją łączącą 140 osób.</h4>
           <img slot="image" src="./assets/content/training.png">
         </content-row>
         <content-row>
-          <h4 slot="text">Jestem inżynierem, dotychczas zajmowałem się oprogramowanie CAD 3D. Supportem technicznym, sprzedażą, szkoleniami...</h4>
+          <h4 slot="text"> Te bardzo różne doświadczenia pokazły mi, że najlepiej odnajduję się w rozwązywaniu konkretnych problemów i sprawianiu, że coś zaczyna istnieć, działać ...</h4>
           <img slot="image" src="./assets/content/modeling.png">
         </content-row>
         <content-row>
-          <h4 slot="text">... i to dzięki tym szerokim dowiadczeniom obrałem swój kierunek dalszego rozwoju w tworzeniu i rozwiązywaniu problemów aplikacji webowych.</h4>
+          <h4 slot="text">... dlatego swojego dalszy rozwoju ukierunkowałem na tworzenie i rozwiązywanie problemów aplikacji webowych.</h4>
           <img slot="image" src="./assets/content/programming.png">
         </content-row>
         <content-row>
-          <h2 slot="text">... czy myślisz, że moglibyśmy nawiązać współpracę?</h2>
+          <h3 slot="text">Jeśli uważasz, że moglibyśmy nawiązać współpracę skontaktuj się ze mną</h3>
           <div slot="image">
             <transition name="arrows">
             <div class="content-arrows" v-show="arrows">
@@ -45,13 +47,15 @@
           </div>
         </content-row>
         </div>
-    </div>
+    </section>
+  </main>
 
     <!--<projects></projects>-->
     <google-map></google-map>
     <contact></contact>
-    <div class="flesh alert">Example message</div>
+    <aside class="flesh alert"></aside>
     <footer class="col-sm-12">
+      &copy; Bartłomiej Płaza web deweloper 2018
     </footer>
   </div>
 </template>
@@ -108,7 +112,7 @@ $sm: "only screen and (max-width: 768px)";
   display: block;
 }
 
-#top {
+header {
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -121,19 +125,18 @@ $sm: "only screen and (max-width: 768px)";
 }
 
 #hero > h1 {
-  font-size: 50px;
+  font-size: 58px;
 
   @media #{$sm}{
-      font-size: 35px;
+      font-size: 40px;
+      margin-top: 0;
     }
 }
 
-#hero > h3 {
-  margin-bottom: 40px;
-
-  @media #{$sm}{
-      font-size: 18px;
-    }
+#hero > p {
+  font-size: 22px;
+  margin-bottom: 60px;
+  margin-top: 60px;
 }
 
 .hero-button {
@@ -161,10 +164,12 @@ footer {
 #content-section {
   width: 100%;
   background-color: #f5f7f9;
+  box-shadow: 0 -5px 2px -2px #f5f7f9;
 }
 
 .content-header{
-  margin-bottom: 80px;
+  padding-top: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -198,6 +203,13 @@ footer {
   bottom: 0px;
   right: 20px;
   z-index: 20;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
 </style>

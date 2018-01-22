@@ -1,10 +1,10 @@
 <template>
-	<div id="map" class="col-md-12 col-sm-12">
+	<aside id="map" class="col-md-12 col-sm-12">
 		<gmap-map
 		    :center="center"
 		    :zoom="13"
 		    :options="mapStyle"
-
+		    :gestureHandling= 'greedy' 
 		  >
 		<gmap-marker
 		      :key="index"
@@ -16,7 +16,7 @@
 		       :icon="{url:'../dist/marker.png'}"
 		    ></gmap-marker>
 		</gmap-map>
-	</div>
+	</aside>
 </template>
 <script>
 import Vue from 'vue';
