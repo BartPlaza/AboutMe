@@ -1,10 +1,10 @@
 <template>
 	<nav class="col-md-8 col-md-offset-2" :class="{'nav-background':!responseIcon}">
         <div class="nav-section" :class="{'nav-show':!responseIcon}">
-          <a href="#" >Home</a>
-          <a href="#">O mnie</a>
-          <a href="#">Projekty</a>
-          <a href="#">Kontakt</a>
+          <a href="/">Home</a>
+          <a href="#skillset">Skils</a>
+          <a href="#content-section">O mnie</a>
+          <a href="#contact">Kontakt</a>
         </div>
         <div class="nav-section" :class="{'nav-show':!responseIcon}">
           <a href="https://www.linkedin.com/in/bart%C5%82omiej-p%C5%82aza-89407792/"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
@@ -14,8 +14,7 @@
           </span>
         </div>
         <i class="fa fa-bars response-menu" @click="showMenu" v-show="responseIcon" aria-hidden="true"></i>
-     	<hr v-show="!responseIcon" style="width: 100%; margin-top: 20px; margin-bottom:0;">
-      </nav>
+  </nav>
 
 </template>
 <script>
@@ -34,16 +33,21 @@ export default {
 </script>
 <style lang="scss">
 $sm: "only screen and (max-width: 768px)";
+$md: "only screen and (max-width: 1080px)";
 
 nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 22px;
 
   @media #{$sm}{
       flex-direction: column;      
       padding-bottom: 15px;
+    }
+
+    @media #{$md}{
+      font-size: 18px;
     }
 }
 
@@ -109,7 +113,8 @@ nav a:hover {
 
 .nav-background {
   @media #{$sm}{
-      background-color: rgba(162,148,163, 0.7);
+      background-color: rgba(162,148,163, 0.8);
+      box-shadow: 0 4px 8px -3px black;
     }
 }
 
