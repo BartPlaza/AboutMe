@@ -55,7 +55,7 @@
     <contact></contact>
     <aside class="flesh alert"></aside>
     <footer class="col-sm-12">
-      &copy; Bartłomiej Płaza web deweloper 2018
+      &copy; Bartłomiej Płaza web developer 2018
     </footer>
   </div>
 </template>

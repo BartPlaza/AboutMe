@@ -9,7 +9,7 @@
         <div class="nav-section" :class="{'nav-show':!responseIcon}">
           <a href="https://www.linkedin.com/in/bart%C5%82omiej-p%C5%82aza-89407792/"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           <span>
-            <a href="https://github.com/grzebyk44"><i class="fa fa-github"  aria-hidden="true"></i> GitHub</a>
+            <a href="https://github.com/BartPlaza"><i class="fa fa-github"  aria-hidden="true"></i> GitHub</a>
             <i class="fa fa-eject response-menu" aria-hidden="true" @click="showMenu" v-show="!responseIcon"></i>
           </span>
         </div>
